@@ -7,7 +7,7 @@ export function StepCard({
   stepNumber,
 }: StepCardProps) {
   return (
-    <div className="group relative flex flex-col text-center">
+    <div className="group relative flex flex-col text-center h-full">
       {/* Step Number */}
       <div className="relative z-20 flex justify-center mb-6">
         <div className="w-16 h-16 bg-[var(--primary-500)] flex items-center justify-center border-4 border-[var(--dark-800)] shadow-lg group-hover:bg-[var(--primary-300)] transition-all duration-300 ease-out">
@@ -27,13 +27,13 @@ export function StepCard({
          </div>
        )}
 
-      <div className="relative z-10 flex flex-col h-full">
-        <Card className="p-8 border-2 border-[var(--primary-500)] theme-shadow-card bg-gradient-to-br from-[var(--dark-700)] to-[var(--dark-800)] group-hover:from-[var(--dark-600)] group-hover:to-[var(--dark-600)] group-hover:border-[var(--primary-300)] transition-all duration-300 ease-out flex-1">
-          <CardContent className="p-0">
+      <div className="relative z-10 flex flex-col h-full flex-1">
+        <Card className="p-8 border-2 border-[var(--primary-500)] theme-shadow-card bg-gradient-to-br from-[var(--dark-700)] to-[var(--dark-800)] group-hover:from-[var(--dark-600)] group-hover:to-[var(--dark-600)] group-hover:border-[var(--primary-300)] transition-all duration-300 ease-out h-full flex flex-col">
+          <CardContent className="p-0 flex flex-col h-full">
           <CardTitle className="text-2xl font-industrial text-white group-hover:text-[var(--primary-300)] mb-4 transition-colors duration-300 ease-out">
             {title}
           </CardTitle>
-          <p className="text-[var(--dark-300)] leading-relaxed group-hover:text-[var(--dark-100)] transition-colors duration-300 ease-out">
+          <p className="text-[var(--dark-300)] leading-relaxed group-hover:text-[var(--dark-100)] transition-colors duration-300 ease-out flex-1">
             {description}
           </p>
           </CardContent>

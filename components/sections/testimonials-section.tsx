@@ -1,6 +1,7 @@
 import { TestimonialCard } from "@/components/cards/testimonial-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { testimonialsData } from "@/lib/constants";
+import { AnimatedContent, StaggeredContainer, StaggeredItem } from "@/lib/animations";
 
 export function TestimonialsSection() {
   return (
@@ -9,27 +10,30 @@ export function TestimonialsSection() {
       <div className="absolute top-0 left-0 w-full h-1 theme-bg-component-1"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="TESTIMONIALS"
-          title="What Our"
-          titleAccent="Customers Say"
-          description="Don't just take our word for it. Here's what our satisfied customers have to say about our services."
-          gradientClass="theme-text-gradient-accent"
-        />
+        <AnimatedContent delay={0.2}>
+          <SectionHeader
+            badge="TESTIMONIALS"
+            title="What Our"
+            titleAccent="Customers Say"
+            description="Don't just take our word for it. Here's what our satisfied customers have to say about our services."
+            gradientClass="theme-text-gradient-accent"
+          />
+        </AnimatedContent>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <StaggeredContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch" staggerDelay={0.2}>
           {testimonialsData.map((testimonial, index) => (
-            <TestimonialCard
-              key={index}
-              stars={testimonial.stars}
-              quote={testimonial.quote}
-              name={testimonial.name}
-              role={testimonial.role}
-              avatarInitials={testimonial.avatarInitials}
-              index={index}
-            />
+            <StaggeredItem key={index}>
+              <TestimonialCard
+                stars={testimonial.stars}
+                quote={testimonial.quote}
+                name={testimonial.name}
+                role={testimonial.role}
+                avatarInitials={testimonial.avatarInitials}
+                index={index}
+              />
+            </StaggeredItem>
           ))}
-        </div>
+        </StaggeredContainer>
       </div>
     </section>
   );

@@ -6,6 +6,7 @@ import { FooterLogo } from "@/components/ui/logo";
 import { ContactInfoItem } from "@/components/cards/contact-info-item";
 import { FaPhone } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
+import { AnimatedContent, StaggeredContainer, StaggeredItem } from "@/lib/animations";
 
 export function Footer() {
   return (
@@ -14,8 +15,8 @@ export function Footer() {
       <div className="absolute top-0 left-0 w-full h-1 theme-bg-component-1"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="space-y-6">
+        <StaggeredContainer className="grid grid-cols-1 md:grid-cols-4 gap-12" staggerDelay={0.2}>
+          <StaggeredItem className="space-y-6">
             <div className="group cursor-pointer">
               <FooterLogo />
             </div>
@@ -41,9 +42,9 @@ export function Footer() {
                 </a>
               </div>
             </div>
-          </div>
+          </StaggeredItem>
 
-          <div className="space-y-6">
+          <StaggeredItem className="space-y-6">
             <h4 className="text-2xl font-industrial text-white">QUICK LINKS</h4>
             <ul className="space-y-4">
               <li>
@@ -79,9 +80,9 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </StaggeredItem>
 
-          <div className="space-y-6">
+          <StaggeredItem className="space-y-6">
             <h4 className="text-2xl font-industrial text-white">
               POPULAR SERVICES
             </h4>
@@ -127,9 +128,9 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </StaggeredItem>
 
-          <div className="space-y-6">
+          <StaggeredItem className="space-y-6">
             <h4 className="text-2xl font-industrial text-white">SUBSCRIBE</h4>
             <p className="text-lg text-[var(--dark-300)] leading-relaxed">
               Stay updated with our latest offers and services.
@@ -148,10 +149,10 @@ export function Footer() {
                 </Button>
               </div>
             </div>
-          </div>
-        </div>
+          </StaggeredItem>
+        </StaggeredContainer>
 
-        <div className="mt-16 pt-8">
+        <AnimatedContent delay={0.8} className="mt-16 pt-8">
           <Separator className="bg-white/20 mb-8" />
           <div className="flex justify-center">
             <p className="text-lg text-[var(--dark-300)] text-center">
@@ -160,7 +161,7 @@ export function Footer() {
               reserved. {BRAND.TAGLINE}.
             </p>
           </div>
-        </div>
+        </AnimatedContent>
       </div>
     </footer>
   );

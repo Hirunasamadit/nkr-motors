@@ -5,6 +5,7 @@ import { ServiceCard } from "@/components/cards/service-card";
 import { servicesData } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
+import { AnimatedContent, StaggeredContainer, StaggeredItem } from "@/lib/animations";
 
 export function ServicesSection() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -29,29 +30,32 @@ export function ServicesSection() {
     >
       <div className="absolute inset-0 theme-bg-overlay-light"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="OUR SERVICES"
-          title="Professional"
-          titleAccent="Auto Services"
-          description="We provide comprehensive auto repair and maintenance services to keep your vehicle running smoothly and safely."
-        />
+        <AnimatedContent delay={0.2}>
+          <SectionHeader
+            badge="OUR SERVICES"
+            title="Professional"
+            titleAccent="Auto Services"
+            description="We provide comprehensive auto repair and maintenance services to keep your vehicle running smoothly and safely."
+          />
+        </AnimatedContent>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggeredContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch" staggerDelay={0.1}>
           {displayedServices.map((service, index) => (
-            <ServiceCard
-              key={index}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              buttonText={service.buttonText}
-              index={index}
-              onClick={() => handleBookNow(service.title)}
-            />
+            <StaggeredItem key={index}>
+              <ServiceCard
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                buttonText={service.buttonText}
+                index={index}
+                onClick={() => handleBookNow(service.title)}
+              />
+            </StaggeredItem>
           ))}
-        </div>
+        </StaggeredContainer>
 
         {servicesData.length > 6 && (
-          <div className="text-center mt-12">
+          <AnimatedContent delay={0.8} className="text-center mt-12">
             <Button
               variant="outlined"
               onClick={() => setIsExpanded(!isExpanded)}
@@ -59,7 +63,7 @@ export function ServicesSection() {
             >
               {isExpanded ? "SHOW LESS" : `VIEW ALL SERVICES`}
             </Button>
-          </div>
+          </AnimatedContent>
         )}
       </div>
     </section>

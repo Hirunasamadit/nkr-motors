@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Navigation } from "@/components/layout/navigation";
 import { HeroCarousel } from "@/components/sections/hero-carousel";
 import { StatisticsSection } from "@/components/sections/statistics-section";
@@ -12,6 +13,8 @@ import { TipsSection } from "@/components/sections/tips-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { Footer } from "@/components/layout/footer";
 import { carouselSlides } from "@/lib/constants";
+import { PageTransition } from "@/lib/animations";
+import { FloatingNav } from "@/components/ui/floating-nav";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,22 +25,28 @@ export default function Home() {
       setIsScrolled(scrollTop > 50);
     };
 
+    // Check initial scroll position
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <div className="min-h-screen bg-[var(--background)]">
-      <Navigation isScrolled={isScrolled} />
-      <HeroCarousel slides={carouselSlides} />
-      <StatisticsSection />
-      <ServicesSection />
-      <AboutSection />
-      <HowItWorksSection />
-      <TestimonialsSection />
-      <TipsSection />
-      <ContactSection />
-      <Footer />
-    </div>
+    <PageTransition>
+      <div className="min-h-screen bg-[var(--background)]">
+        <Navigation isScrolled={isScrolled} />
+        <HeroCarousel slides={carouselSlides} />
+        <StatisticsSection />
+        <ServicesSection />
+        <AboutSection />
+        <HowItWorksSection />
+        <TestimonialsSection />
+        <TipsSection />
+        <ContactSection />
+        <Footer />
+        <FloatingNav />
+      </div>
+    </PageTransition>
   );
 }

@@ -12,8 +12,8 @@ export function TestimonialCard({
   index,
 }: TestimonialCardProps) {
   return (
-    <Card className="group relative bg-white/10 hover:bg-white/20 backdrop-blur-md p-8 theme-shadow-card transition-all duration-300 ease-out border-2 border-white/20 hover:border-[var(--primary-600)]">
-      <CardContent className="p-0">
+    <Card className="group relative bg-white/10 hover:bg-white/20 backdrop-blur-md p-8 theme-shadow-card transition-all duration-300 ease-out border-2 border-white/20 hover:border-[var(--primary-600)] h-full flex flex-col">
+      <CardContent className="p-0 flex flex-col h-full">
       <div className="flex items-center mb-6">
         <div className="flex text-xl gap-1">
           {Array.from({ length: stars }, (_, i) => {
@@ -40,10 +40,10 @@ export function TestimonialCard({
           })}
         </div>
       </div>
-      <p className="text-[var(--dark-200)] group-hover:text-white mb-8 leading-relaxed text-lg transition-colors duration-300 ease-out">
+      <p className="text-[var(--dark-200)] group-hover:text-white mb-8 leading-relaxed text-lg transition-colors duration-300 ease-out flex-1">
         &quot;{quote}&quot;
       </p>
-      <div className="flex items-center">
+      <div className="flex items-center mt-auto">
         <Avatar
           className={`w-16 h-16 mr-4 theme-bg-component-${index + 1}`}
         >

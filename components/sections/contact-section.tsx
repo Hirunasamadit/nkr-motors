@@ -18,6 +18,7 @@ import { useSearchParams } from "next/navigation";
 import { FaPhone, FaLocationDot, FaClock } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { ContactInfoItem } from "@/components/cards/contact-info-item";
+import { AnimatedContent, StaggeredContainer, StaggeredItem } from "@/lib/animations";
 
 export function ContactSection() {
   const searchParams = useSearchParams();
@@ -50,16 +51,18 @@ export function ContactSection() {
       <div className="absolute top-0 left-0 w-full h-1 theme-bg-component-1"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="CONTACT US"
-          title="Request an"
-          titleAccent="Appointment"
-          description="Request an appointment online. After you submit the form, a representative will call you back with the information you'll need to make an appointment."
-          gradientClass="theme-text-gradient-accent"
-        />
+        <AnimatedContent delay={0.2}>
+          <SectionHeader
+            badge="CONTACT US"
+            title="Request an"
+            titleAccent="Appointment"
+            description="Request an appointment online. After you submit the form, a representative will call you back with the information you'll need to make an appointment."
+            gradientClass="theme-text-gradient-accent"
+          />
+        </AnimatedContent>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="relative flex">
+          <AnimatedContent delay={0.4} direction="left" className="relative flex">
             <div id="booking-form" className="bg-white/10 backdrop-blur-md p-8 theme-shadow-card border border-white/20 w-full flex flex-col">
               <h3 className="text-3xl font-industrial text-white mb-8">
                 Book Your Service
@@ -112,41 +115,49 @@ export function ContactSection() {
                 <Button variant="filled" type="submit" className="p-6">SEND MESSAGE</Button>
               </form>
             </div>
-          </div>
+          </AnimatedContent>
 
-          <div className="flex flex-col h-full space-y-6">
+          <AnimatedContent delay={0.6} direction="right" className="flex flex-col h-full space-y-6">
             <div className="p-8 bg-white/10 border border-white/20 backdrop-blur-md theme-shadow-card flex flex-col">
               <h3 className="mb-6 text-3xl font-industrial text-white">
                 Contact Information
               </h3>
-              <div className="flex flex-col space-y-6">
-                <ContactInfoItem
-                  icon={<FaPhone className="w-6 h-6 text-white" />}
-                  primaryText={BRAND.CONTACT.PHONE}
-                  secondaryText="Call us anytime"
-                  iconThemeClass="theme-bg-component-1"
-                  href={BRAND.CONTACT.PHONE_LINK}
-                />
-                <ContactInfoItem
-                  icon={<MdEmail className="w-6 h-6 text-white" />}
-                  primaryText={BRAND.CONTACT.EMAIL}
-                  secondaryText="Email us"
-                  iconThemeClass="theme-bg-component-2"
-                  href={`mailto:${BRAND.CONTACT.EMAIL}`}
-                />
-                <ContactInfoItem
-                  icon={<FaLocationDot className="w-6 h-6 text-white" />}
-                  primaryText={BRAND.CONTACT.ADDRESS.LINE_1}
-                  secondaryText={BRAND.CONTACT.ADDRESS.LINE_2}
-                  iconThemeClass="theme-bg-component-3"
-                />
-                <ContactInfoItem
-                  icon={<FaClock className="w-6 h-6 text-white" />}
-                  primaryText={BRAND.CONTACT.HOURS.DAYS}
-                  secondaryText={BRAND.CONTACT.HOURS.TIMES}
-                  iconThemeClass="theme-bg-component-4"
-                />
-              </div>
+              <StaggeredContainer className="flex flex-col space-y-6" staggerDelay={0.1}>
+                <StaggeredItem>
+                  <ContactInfoItem
+                    icon={<FaPhone className="w-6 h-6 text-white" />}
+                    primaryText={BRAND.CONTACT.PHONE}
+                    secondaryText="Call us anytime"
+                    iconThemeClass="theme-bg-component-1"
+                    href={BRAND.CONTACT.PHONE_LINK}
+                  />
+                </StaggeredItem>
+                <StaggeredItem>
+                  <ContactInfoItem
+                    icon={<MdEmail className="w-6 h-6 text-white" />}
+                    primaryText={BRAND.CONTACT.EMAIL}
+                    secondaryText="Email us"
+                    iconThemeClass="theme-bg-component-2"
+                    href={`mailto:${BRAND.CONTACT.EMAIL}`}
+                  />
+                </StaggeredItem>
+                <StaggeredItem>
+                  <ContactInfoItem
+                    icon={<FaLocationDot className="w-6 h-6 text-white" />}
+                    primaryText={BRAND.CONTACT.ADDRESS.LINE_1}
+                    secondaryText={BRAND.CONTACT.ADDRESS.LINE_2}
+                    iconThemeClass="theme-bg-component-3"
+                  />
+                </StaggeredItem>
+                <StaggeredItem>
+                  <ContactInfoItem
+                    icon={<FaClock className="w-6 h-6 text-white" />}
+                    primaryText={BRAND.CONTACT.HOURS.DAYS}
+                    secondaryText={BRAND.CONTACT.HOURS.TIMES}
+                    iconThemeClass="theme-bg-component-4"
+                  />
+                </StaggeredItem>
+              </StaggeredContainer>
             </div>
 
             {/* Google Maps Embed */}
@@ -172,7 +183,7 @@ export function ContactSection() {
                 />
               </div>
             </div>
-          </div>
+          </AnimatedContent>
         </div>
       </div>
     </section>

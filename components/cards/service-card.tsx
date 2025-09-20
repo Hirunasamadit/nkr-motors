@@ -12,9 +12,9 @@ export function ServiceCard({
 }: ServiceCardProps) {
   return (
     <Card
-      className={`group relative p-8 border-2 border-[var(--primary-400)] theme-shadow-card bg-gradient-to-br from-[var(--dark-800)] to-[var(--dark-900)] hover:from-[var(--dark-600)] hover:to-[var(--dark-600)] hover:border-[var(--primary-300)] transition-all duration-300 ease-out`}
+      className={`group relative p-8 border-2 border-[var(--primary-400)] theme-shadow-card bg-gradient-to-br from-[var(--dark-800)] to-[var(--dark-900)] hover:from-[var(--dark-600)] hover:to-[var(--dark-600)] hover:border-[var(--primary-300)] transition-all duration-300 ease-out h-full flex flex-col`}
     >
-      <CardContent className="p-0">
+      <CardContent className="p-0 flex flex-col h-full">
         <div
           className={`w-16 h-16 flex items-center justify-center mb-6 theme-bg-component-${index + 1}`}
         >
@@ -23,11 +23,11 @@ export function ServiceCard({
         <CardTitle className="text-2xl font-industrial text-white group-hover:text-[var(--primary-300)] mb-4 transition-colors duration-300 ease-out">
           {title}
         </CardTitle>
-        <CardDescription className="text-[var(--dark-300)] mb-6 leading-relaxed group-hover:text-[var(--dark-100)] transition-colors duration-300 ease-out">
+        <CardDescription className="text-[var(--dark-300)] mb-6 leading-relaxed group-hover:text-[var(--dark-100)] transition-colors duration-300 ease-out flex-1">
           {description}
         </CardDescription>
         <ArrowButton 
-          className="hover:opacity-80 cursor-pointer" 
+          className="hover:opacity-80 cursor-pointer mt-auto" 
           onClick={onClick}
         >
           {buttonText}

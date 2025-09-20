@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
@@ -20,7 +21,10 @@ interface NavigationProps {
 
 export function Navigation({ isScrolled }: NavigationProps) {
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed z-50 w-full border-b transition-all duration-300 ease-out ${
         isScrolled
           ? "bg-[var(--dark-900)] border-[var(--primary-20)] backdrop-blur-xl shadow-2xl"
@@ -124,6 +128,6 @@ export function Navigation({ isScrolled }: NavigationProps) {
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }

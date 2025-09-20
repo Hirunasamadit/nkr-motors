@@ -166,7 +166,7 @@ export const servicesData = [
   {
     icon: <FaTemperatureThreeQuarters className="w-8 h-8 text-[var(--dark-700)] group-hover:text-white transition-colors duration-300 ease-in-out" />,
     title: "COOLING SYSTEM",
-    description: "Keep your engine cool and prevent breakdowns. We fix radiator problems, replace coolant, and ensure your car doesn't overheat in Sri Lanka's hot weather.",
+    description: "Keep your engine cool and prevent breakdowns. We fix radiator problems, replace coolant, and ensure your car doesn't overheat in hot weather.",
     buttonText: "BOOK NOW",
   },
   {
@@ -186,7 +186,7 @@ export const servicesData = [
   {
     icon: <GiSteeringWheel className="w-8 h-8 text-[var(--dark-700)] group-hover:text-white transition-colors duration-300 ease-in-out" />,
     title: "STEERING REPAIR",
-    description: "Keep your car driving straight and smooth. We fix steering problems and suspension issues to ensure comfortable, safe driving on Sri Lankan roads.",
+    description: "Keep your car driving straight and smooth. We fix steering problems and suspension issues to ensure comfortable, safe driving on all road conditions.",
     buttonText: "BOOK NOW",
   },
 
@@ -194,7 +194,7 @@ export const servicesData = [
   {
     icon: <LuAirVent className="w-8 h-8 text-[var(--dark-700)] group-hover:text-white transition-colors duration-300 ease-in-out" />,
     title: "AC & HEATING SERVICE",
-    description: "Stay cool in Sri Lanka's heat with working air conditioning. We fix AC problems, recharge refrigerant, and ensure your car stays comfortable year-round.",
+    description: "Stay cool in hot weather with working air conditioning. We fix AC problems, recharge refrigerant, and ensure your car stays comfortable year-round.",
     buttonText: "BOOK NOW",
   },
 
@@ -332,7 +332,7 @@ export const tipsData = [
     icon: <FaTemperatureThreeQuarters className="w-8 h-8 text-[var(--dark-700)] group-hover:text-white transition-colors duration-300 ease-in-out" />,
     category: "COOLING",
     title: "Cooling System",
-    description: "Check radiator and coolant levels regularly in Sri Lanka's hot climate.",
+    description: "Check radiator and coolant levels regularly in hot climate conditions.",
   },
   {
     icon: <MdElectricBolt className="w-8 h-8 text-[var(--dark-700)] group-hover:text-white transition-colors duration-300 ease-in-out" />,

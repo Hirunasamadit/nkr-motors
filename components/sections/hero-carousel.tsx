@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { HeroCarouselProps } from "@/lib/types";
 import { BRAND } from "@/lib/constants";
+import { TextReveal, floatingAnimation, floatingTransition } from "@/lib/animations";
 
 export function HeroCarousel({ slides }: HeroCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -50,25 +52,33 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
   return (
     <section
       id="home"
-      className="relative flex items-center min-h-screen overflow-hidden"
+      className="relative flex items-center min-h-screen overflow-hidden theme-bg-hero"
     >
-      {/* Background */}
-      <div className="absolute inset-0 theme-bg-hero"></div>
+      {/* Background Overlay */}
       <div className="absolute inset-0 theme-bg-overlay"></div>
 
       {/* Background Subtitle - Consistent across all slides */}
-      <div className="absolute inset-0 w-full flex justify-center items-start pt-20 z-0">
+      <motion.div 
+        className="absolute inset-0 w-full flex justify-center items-start pt-20 z-0"
+        initial={{ opacity: 0, x: 200 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+      >
         <h2
           className="text-8xl md:text-9xl lg:text-[12rem] font-automotive text-transparent tracking-widest select-none text-right"
           style={{ WebkitTextStroke: "1px rgba(255, 255, 255, 0.1)" }}
         >
           {BRAND.NAME}
         </h2>
-      </div>
+      </motion.div>
 
       {/* Car Image - Absolute Positioned - Consistent across all slides */}
-      <div className="absolute right-8 -bottom-20 z-20 group cursor-pointer hidden lg:block">
-        <div className="relative animate-bounce-subtle">
+      <motion.div 
+        className="absolute right-8 -bottom-20 z-20 group cursor-pointer hidden lg:block"
+        animate={floatingAnimation}
+        transition={floatingTransition}
+      >
+        <div className="relative">
           {/* External Car Image - Base Layer */}
           <Image
             src="/car-external-alt.png"
@@ -96,104 +106,63 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
           />
           
           {/* Enhanced Headlight Effects */}
-          <div className="absolute top-[42%] left-[5%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-200 group-hover:shadow-[0_40px_80px_rgba(255,255,255,0.8)] blur-sm z-30" style={{ background: 'radial-gradient(circle, #ffffff 0%, #f8f8ff 50%, #e6f3ff 100%)' }}></div>
-          <div className="absolute top-[42%] left-[82%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-200 group-hover:shadow-[0_40px_80px_rgba(255,255,255,0.8)] blur-sm z-30" style={{ background: 'radial-gradient(circle, #ffffff 0%, #f8f8ff 50%, #e6f3ff 100%)' }}></div>
+          <div className="absolute top-[42%] left-[5%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-175 group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
+          <div className="absolute top-[42%] left-[82%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-175 group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="relative z-10 w-full overflow-hidden">
-        <div
-          className="flex transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)]"
-          style={{
-            transform: `translateX(-${currentSlide * 100}%)`,
-            filter: "blur(0px)",
-          }}
-        >
-          {slides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className="w-full flex-shrink-0 relative"
-              style={{
-                opacity: index === currentSlide ? 1 : 0.7,
-                transform: `scale(${index === currentSlide ? 1 : 0.95})`,
-                transition: "all 1000ms cubic-bezier(0.4,0,0.2,1)",
-              }}
-            >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div className="flex items-center">
-                  {/* Left Column - Dynamic Content */}
-                  <div className="space-y-8 text-left max-w-2xl">
-                    <div className="overflow-hidden">
-                      <h1
-                        className="text-5xl md:text-7xl font-automotive text-white tracking-tight leading-tight transform transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)]"
-                        style={{
-                          transform: `translateY(${
-                            index === currentSlide ? "0" : "50px"
-                          })`,
-                          opacity: index === currentSlide ? 1 : 0.8,
-                        }}
-                      >
-                        {slide.title.split(" ").map((word, wordIndex) => (
-                          <span
-                            key={wordIndex}
-                            className="inline-block transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] mr-4"
-                            style={{
-                              transform: `translateY(${
-                                index === currentSlide ? "0" : "30px"
-                              })`,
-                              transitionDelay: `${wordIndex * 100}ms`,
-                            }}
-                          >
-                            {slide.highlightWords.includes(word) ? (
-                              <span className="theme-text-gradient-accent">
-                                {word}
-                              </span>
-                            ) : (
-                              word
-                            )}
-                          </span>
-                        ))}
-                      </h1>
-                    </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex items-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                className="w-full flex-shrink-0 relative"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                {/* Left Column - Dynamic Content */}
+                <div className="space-y-8 text-left max-w-2xl">
+                  <TextReveal
+                    text={slides[currentSlide].title}
+                    className="text-5xl md:text-7xl font-automotive text-white tracking-tight leading-tight"
+                    highlightWords={slides[currentSlide].highlightWords}
+                    highlightClass="theme-text-gradient-accent"
+                    delay={0.2}
+                  />
 
-                    <div className="overflow-hidden">
-                      <p
-                        className="text-xl md:text-2xl text-[var(--dark-300)] leading-relaxed transform transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)]"
-                        style={{
-                          transform: `translateY(${
-                            index === currentSlide ? "0" : "40px"
-                          })`,
-                          opacity: index === currentSlide ? 1 : 0.7,
-                          transitionDelay: "200ms",
-                        }}
-                      >
-                        {slide.description}
-                      </p>
-                    </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                  >
+                    <p className="text-xl md:text-2xl text-[var(--dark-300)] leading-relaxed">
+                      {slides[currentSlide].description}
+                    </p>
+                  </motion.div>
 
-                    <div
-                      className="flex flex-col sm:flex-row gap-6 pt-8 transform transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)]"
-                      style={{
-                        transform: `translateY(${
-                          index === currentSlide ? "0" : "30px"
-                        })`,
-                        opacity: index === currentSlide ? 1 : 0.8,
-                        transitionDelay: "400ms",
-                      }}
-                    >
+                  <motion.div
+                    className="flex flex-col sm:flex-row gap-6 pt-8"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
+                  >
+                    <div>
                       <Button 
                         variant="filled"
-                        onClick={() => handleButtonAction(slide.buttonAction)}
+                        onClick={() => handleButtonAction(slides[currentSlide].buttonAction)}
                         className="min-w-64 p-6"
                       >
-                        {slide.buttonText}
+                        {slides[currentSlide].buttonText}
                       </Button>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>
