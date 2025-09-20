@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { BRAND } from "@/lib/constants";
 import {
@@ -11,9 +11,9 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { NavLink } from "@/components/ui/nav-link";
-import { NavigationLogo, MobileLogo } from "@/components/ui/logo";
+import { NavigationLogo } from "@/components/ui/logo";
 import { FaPhone } from "react-icons/fa6";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 
 interface NavigationProps {
   isScrolled: boolean;
@@ -58,14 +58,14 @@ export function Navigation({ isScrolled }: NavigationProps) {
             <Button variant="outlined" className="p-6" asChild>
               <a href={BRAND.CONTACT.PHONE_LINK} className="group relative">
                 <div className="flex items-center space-x-2 relative z-10">
-                  <FaPhone className="w-5 h-5" />
+                  <FaPhone className="w-6 h-6" />
                   <span>{BRAND.CONTACT.PHONE}</span>
                 </div>
               </a>
             </Button>
           </div>
 
-          <div className="lg:hidden">
+          <div className="lg:hidden ml-auto">
             <Sheet>
               <SheetTrigger asChild>
                 <Button
@@ -78,50 +78,90 @@ export function Navigation({ isScrolled }: NavigationProps) {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[300px] sm:w-[400px] bg-[var(--dark-800)] border-[var(--dark-700)]"
+                className="w-[320px] sm:w-[380px] bg-[var(--dark-900)] border-l border-[var(--dark-700)] p-0"
               >
-                <div className="flex items-center justify-between mb-8">
-                  <MobileLogo />
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                {/* Mobile Menu Header */}
+                <div className="sticky top-0 z-10 bg-[var(--dark-900)] border-b border-[var(--dark-700)] p-6">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-lg font-automotive text-white tracking-wide">
+                      Menu
+                    </h2>
+                    <SheetTrigger asChild>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="group relative p-3 text-[var(--dark-300)] bg-transparent shadow-lg hover:text-white hover:shadow-xl focus:outline-none transition-all duration-300 ease-out"
+                      >
+                        <FiX className="h-6 w-6" />
+                      </Button>
+                    </SheetTrigger>
+                  </div>
                 </div>
 
-                <nav className="space-y-4">
-                  <a
-                    href="#home"
-                    className="block px-6 py-4 text-xl font-industrial theme-mobile-bg-1 hover:shadow-lg transition-all duration-300 ease-out"
-                  >
-                    Home
-                  </a>
-                  <a
-                    href="#services"
-                    className="block px-6 py-4 text-xl font-industrial theme-mobile-bg-2 hover:shadow-lg transition-all duration-300 ease-out"
-                  >
-                    Services
-                  </a>
-                  <a
-                    href="#about"
-                    className="block px-6 py-4 text-xl font-industrial theme-mobile-bg-3 hover:shadow-lg transition-all duration-300 ease-out"
-                  >
-                    About
-                  </a>
-                  <a
-                    href="#contact"
-                    className="block px-6 py-4 text-xl font-industrial theme-mobile-bg-4 hover:shadow-lg transition-all duration-300 ease-out"
-                  >
-                    Contact
-                  </a>
-                </nav>
-
-                <div className="mt-8 pt-8">
-                  <Separator className="bg-[var(--dark-700)] mb-8" />
-                  <Button variant="outlined" className="p-6" asChild>
+                {/* Navigation Links */}
+                <div className="flex-1 px-4 py-6">
+                  <nav className="space-y-2">
                     <a
-                      href={BRAND.CONTACT.PHONE_LINK}
-                      className="flex items-center justify-center space-x-2"
+                      href="#home"
+                      className="group flex items-center px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--primary-500)] transition-all duration-300 ease-out"
                     >
-                      <FaPhone className="w-5 h-5" />
-                      <span>{BRAND.CONTACT.PHONE}</span>
+                      <span className="text-lg font-industrial text-[var(--dark-200)] group-hover:text-white transition-colors duration-300">
+                        Home
+                      </span>
                     </a>
-                  </Button>
+                    <a
+                      href="#services"
+                      className="group flex items-center px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--primary-500)] transition-all duration-300 ease-out"
+                    >
+                      <span className="text-lg font-industrial text-[var(--dark-200)] group-hover:text-white transition-colors duration-300">
+                        Services
+                      </span>
+                    </a>
+                    <a
+                      href="#about"
+                      className="group flex items-center px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--primary-500)] transition-all duration-300 ease-out"
+                    >
+                      <span className="text-lg font-industrial text-[var(--dark-200)] group-hover:text-white transition-colors duration-300">
+                        About
+                      </span>
+                    </a>
+                    <a
+                      href="#contact"
+                      className="group flex items-center px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--primary-500)] transition-all duration-300 ease-out"
+                    >
+                      <span className="text-lg font-industrial text-[var(--dark-200)] group-hover:text-white transition-colors duration-300">
+                        Contact
+                      </span>
+                    </a>
+                  </nav>
+                </div>
+
+                {/* Phone Action Section */}
+                <div className="sticky bottom-0 bg-[var(--dark-900)] border-t border-[var(--dark-700)] p-6">
+                  <div className="space-y-4">
+                    <div className="text-center">
+                      <p className="text-sm text-[var(--dark-400)] mb-2">
+                        Need immediate assistance?
+                      </p>
+                      <p className="text-xs text-[var(--dark-500)]">
+                        Call us now for expert service
+                      </p>
+                    </div>
+                    <div className="flex justify-center">
+                      <Button variant="outlined" className="p-6" asChild>
+                        <a
+                          href={BRAND.CONTACT.PHONE_LINK}
+                          className="group relative"
+                        >
+                          <div className="flex items-center space-x-2 relative z-10">
+                            <FaPhone className="w-6 h-6" />
+                            <span>{BRAND.CONTACT.PHONE}</span>
+                          </div>
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

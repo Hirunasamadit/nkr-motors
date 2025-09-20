@@ -24,7 +24,7 @@ export function DateTimePicker() {
   const [date, setDate] = React.useState<Date | undefined>(undefined)
 
   return (
-    <div className="flex gap-6">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
       <div className="flex-1">
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>

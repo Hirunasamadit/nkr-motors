@@ -16,10 +16,10 @@ export interface LogoProps {
 const logoConfig = {
   navigation: {
     size: 64,
-    containerClass: "w-16 h-16",
-    textSize: "text-4xl",
-    taglineSize: "text-base",
-    spacing: "space-x-4",
+    containerClass: "w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16",
+    textSize: "text-2xl sm:text-3xl md:text-4xl",
+    taglineSize: "text-sm sm:text-base",
+    spacing: "space-x-2 sm:space-x-3 md:space-x-4",
   },
   footer: {
     size: 48,
@@ -57,6 +57,7 @@ export function Logo({
           width={config.size}
           height={config.size}
           className="w-full h-full object-cover"
+          priority
         />
       </div>
       {showText && (

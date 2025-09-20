@@ -7,7 +7,7 @@ export function StatisticsSection() {
     <section className="relative py-20 -mt-16 overflow-hidden theme-bg-primary">
       <div className="absolute inset-0 bg-black/10"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <StaggeredContainer className="grid grid-cols-1 md:grid-cols-4 gap-8 items-stretch" staggerDelay={0.3}>
+        <StaggeredContainer className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-8 items-stretch" staggerDelay={0.3}>
           {statisticsData.map((stat, index) => (
             <StaggeredItem key={index}>
               <StatsCard
