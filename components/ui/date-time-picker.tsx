@@ -33,9 +33,10 @@ export function DateTimePicker() {
               id="date-picker"
               className="w-full justify-between font-normal px-6 py-6 theme-input group"
             >
-              <span className={date ? "text-white" : "text-[var(--dark-400)] group-hover:text-[var(--dark-100)] transition-colors duration-300 ease-out"}>
+              <span className={date ? "pl-3 text-white" : "pl-3 text-[var(--dark-400)] group-hover:text-[var(--dark-100)] transition-colors duration-300 ease-out"}>
                 {date ? date.toLocaleDateString() : "SELECT DATE"}
               </span>
+              <ChevronDownIcon className="mr-3 opacity-30" />
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-auto overflow-hidden p-0 bg-[var(--dark-800)] border-[var(--dark-600)]" align="start">

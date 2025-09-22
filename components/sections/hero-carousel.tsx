@@ -65,7 +65,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
       >
         <h2
-          className="text-8xl md:text-9xl lg:text-[12rem] font-automotive text-transparent tracking-widest select-none text-right"
+          className="text-7xl md:text-9xl lg:text-[12rem] font-automotive text-transparent tracking-widest select-none text-right"
           style={{ WebkitTextStroke: "1px rgba(255, 255, 255, 0.1)" }}
         >
           {BRAND.NAME}
@@ -130,7 +130,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
                   <div className="space-y-8 text-left max-w-2xl">
                     <TextReveal
                       text={slides[currentSlide].title}
-                      className="text-5xl md:text-7xl font-automotive text-white tracking-tight leading-tight"
+                      className="text-4xl md:text-7xl font-automotive text-white tracking-tight leading-tight"
                       highlightWords={slides[currentSlide].highlightWords}
                       highlightClass="theme-text-gradient-accent"
                       delay={0.2}
@@ -189,17 +189,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
                   width={400}
                   height={267}
                   className="absolute inset-0 w-full h-auto object-contain transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-60 group-hover:opacity-90"
-                />
-                {/* Pulley Component Image - Bottom Right */}
-                <Image
-                  src="/car-pulley.png"
-                  alt="Metallic pulley component with bolt holes and polished surface"
-                  width={40}
-                  height={40}
-                  className="absolute bottom-36 right-50 w-auto h-auto object-contain transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-90 group-hover:opacity-100 animate-spin"
-                  style={{ animationDuration: '6s' }}
-                />
-                
+                />       
                 {/* Enhanced Headlight Effects - Mobile */}
                 <div className="absolute top-[42%] left-[8%] w-12 h-12 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-150 group-hover:shadow-[0_20px_40px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
                 <div className="absolute top-[42%] left-[82%] w-12 h-12 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-150 group-hover:shadow-[0_20px_40px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>

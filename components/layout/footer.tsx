@@ -15,8 +15,8 @@ export function Footer() {
       <div className="absolute top-0 left-0 w-full h-1 theme-bg-component-1"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <StaggeredContainer className="grid grid-cols-1 md:grid-cols-4 gap-12" staggerDelay={0.2}>
-          <StaggeredItem className="space-y-6">
+        <StaggeredContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12" staggerDelay={0.2}>
+          <StaggeredItem className="space-y-6 sm:col-span-2 md:col-span-1">
             <div className="group cursor-pointer">
               <FooterLogo />
             </div>
@@ -130,7 +130,7 @@ export function Footer() {
             </ul>
           </StaggeredItem>
 
-          <StaggeredItem className="space-y-6">
+          <StaggeredItem className="space-y-6 sm:col-span-2 md:col-span-1">
             <h4 className="text-2xl font-industrial text-white">SUBSCRIBE</h4>
             <p className="text-lg text-[var(--dark-300)] leading-relaxed">
               Stay updated with our latest offers and services.

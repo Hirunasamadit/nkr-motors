@@ -2,7 +2,11 @@ import { BRAND, aboutCardsData, whyChooseUsData } from "@/lib/constants";
 import { AboutCard } from "@/components/cards/about-card";
 import { WhyChooseUsItem } from "@/components/cards/why-choose-us-item";
 import { SectionHeader } from "@/components/ui/section-header";
-import { AnimatedContent, StaggeredContainer, StaggeredItem } from "@/lib/animations";
+import {
+  AnimatedContent,
+  StaggeredContainer,
+  StaggeredItem,
+} from "@/lib/animations";
 
 export function AboutSection() {
   return (
@@ -23,69 +27,74 @@ export function AboutSection() {
             gradientClass="theme-text-gradient-accent"
           />
         </AnimatedContent>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <StaggeredContainer className="space-y-8 items-stretch" staggerDelay={0.2}>
-            {aboutCardsData.map((card, index) => (
-              <StaggeredItem key={index}>
-                <AboutCard
-                  icon={card.icon}
-                  title={card.title}
-                  description={card.description}
-                  iconThemeClass={card.iconThemeClass}
-                />
-              </StaggeredItem>
-            ))}
-          </StaggeredContainer>
+      <div className="w-full">
+        {aboutCardsData.map((card, index) => (
+          <AboutCard
+            key={index}
+            icon={card.icon}
+            title={card.title}
+            description={card.description}
+            iconThemeClass={card.iconThemeClass}
+            imageUrl={card.imageUrl}
+            imageAlt={card.imageAlt}
+            imageCaption={card.imageCaption}
+            imageSubcaption={card.imageSubcaption}
+            isImageLeft={index % 2 === 1}
+          />
+        ))}
+      </div>
 
-          <div className="space-y-8">
-            <AnimatedContent delay={0.4} direction="right">
-              <div className="backdrop-blur-md p-8 theme-shadow-card border border-[var(--primary-50)]">
-                <h3 className="text-3xl font-industrial text-white mb-6">
-                  Our Mission
-                </h3>
-                <p className="text-[var(--dark-300)] leading-relaxed text-lg mb-6">
-                  To provide exceptional automotive service that keeps you safe
-                  on the road while building lasting relationships with our
-                  customers through honesty, integrity, and quality workmanship.
-                </p>
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center group">
-                    <div className="text-4xl font-black mb-2 text-[var(--primary-600)] group-hover:text-[var(--primary-300)] transition-colors duration-300 ease-out">
-                      5000+
-                    </div>
-                    <div className="text-[var(--dark-300)] text-sm group-hover:text-[var(--dark-200)] transition-colors duration-300 ease-out">
-                      Cars Serviced
-                    </div>
-                  </div>
-                  <div className="text-center group">
-                    <div className="text-4xl font-black mb-2 text-[var(--primary-600)] group-hover:text-[var(--primary-300)] transition-colors duration-300 ease-out">
-                      98%
-                    </div>
-                    <div className="text-[var(--dark-300)] text-sm group-hover:text-[var(--dark-200)] transition-colors duration-300 ease-out">
-                      Customer Satisfaction
-                    </div>
-                  </div>
+      {/* Mission Statement and Why Choose Us in same row */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Mission Statement */}
+        <AnimatedContent delay={0.8} direction="left">
+          <div className="backdrop-blur-md p-8 theme-shadow-card border border-[var(--primary-50)] h-full">
+            <h3 className="text-3xl font-industrial text-white mb-6">
+              Our Mission
+            </h3>
+            <p className="text-[var(--dark-300)] leading-relaxed text-lg mb-8">
+              To provide exceptional automotive service that keeps you safe on
+              the road while building lasting relationships with our customers
+              through honesty, integrity, and quality workmanship.
+            </p>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="text-center group">
+                <div className="text-4xl font-black mb-2 text-[var(--primary-600)] group-hover:text-[var(--primary-300)] transition-colors duration-300 ease-out">
+                  5000+
+                </div>
+                <div className="text-[var(--dark-300)] text-sm group-hover:text-[var(--dark-200)] transition-colors duration-300 ease-out">
+                  Cars Serviced
                 </div>
               </div>
-            </AnimatedContent>
-
-            <AnimatedContent delay={0.6} direction="right">
-              <div className="p-8 bg-white/10 border border-white/20 backdrop-blur-md theme-shadow-card">
-                <h3 className="text-2xl font-industrial text-white mb-6">
-                  Why Choose {BRAND.NAME}?
-                </h3>
-                <StaggeredContainer className="space-y-4" staggerDelay={0.1}>
-                  {whyChooseUsData.map((item, index) => (
-                    <StaggeredItem key={index}>
-                      <WhyChooseUsItem text={item} />
-                    </StaggeredItem>
-                  ))}
-                </StaggeredContainer>
+              <div className="text-center group">
+                <div className="text-4xl font-black mb-2 text-[var(--primary-600)] group-hover:text-[var(--primary-300)] transition-colors duration-300 ease-out">
+                  99%
+                </div>
+                <div className="text-[var(--dark-300)] text-sm group-hover:text-[var(--dark-200)] transition-colors duration-300 ease-out">
+                  Customer Satisfaction
+                </div>
               </div>
-            </AnimatedContent>
+            </div>
           </div>
-        </div>
+        </AnimatedContent>
+
+        {/* Why Choose Us */}
+        <AnimatedContent delay={0.8} direction="right">
+          <div className="p-8 bg-white/10 border border-white/20 backdrop-blur-md theme-shadow-card h-full">
+            <h3 className="text-2xl font-industrial text-white mb-6">
+              Why Choose {BRAND.NAME}?
+            </h3>
+            <StaggeredContainer className="space-y-4" staggerDelay={0.1}>
+              {whyChooseUsData.map((item, index) => (
+                <StaggeredItem key={index}>
+                  <WhyChooseUsItem text={item} />
+                </StaggeredItem>
+              ))}
+            </StaggeredContainer>
+          </div>
+        </AnimatedContent>
       </div>
     </section>
   );

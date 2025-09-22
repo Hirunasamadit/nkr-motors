@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
@@ -20,6 +21,12 @@ interface NavigationProps {
 }
 
 export function Navigation({ isScrolled }: NavigationProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -66,7 +73,7 @@ export function Navigation({ isScrolled }: NavigationProps) {
           </div>
 
           <div className="lg:hidden ml-auto">
-            <Sheet>
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="outline"
@@ -82,9 +89,9 @@ export function Navigation({ isScrolled }: NavigationProps) {
               >
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 {/* Mobile Menu Header */}
-                <div className="sticky top-0 z-10 bg-[var(--dark-900)] border-b border-[var(--dark-700)] p-6">
-                  <div className="flex items-center justify-between">
-                    <h2 className="text-lg font-automotive text-white tracking-wide">
+                <div className="sticky top-0 z-10 bg-[var(--dark-900)] border-b border-[var(--dark-700)] h-24 px-4 sm:px-6">
+                  <div className="flex items-center justify-between h-full">
+                    <h2 className="text-lg font-automotive theme-text-gradient tracking-wide">
                       Menu
                     </h2>
                     <SheetTrigger asChild>
@@ -102,38 +109,50 @@ export function Navigation({ isScrolled }: NavigationProps) {
                 {/* Navigation Links */}
                 <div className="flex-1 px-4 py-6">
                   <nav className="space-y-2">
-                    <a
-                      href="#home"
-                      className="group flex items-center px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--primary-500)] transition-all duration-300 ease-out"
+                    <button
+                      onClick={() => {
+                        closeMobileMenu();
+                        document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="group flex items-center w-full px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--dark-700)] transition-all duration-300 ease-out"
                     >
-                      <span className="text-lg font-industrial text-[var(--dark-200)] group-hover:text-white transition-colors duration-300">
+                      <span className="text-lg font-industrial text-white group-hover:text-[var(--primary-300)] transition-colors duration-300">
                         Home
                       </span>
-                    </a>
-                    <a
-                      href="#services"
-                      className="group flex items-center px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--primary-500)] transition-all duration-300 ease-out"
+                    </button>
+                    <button
+                      onClick={() => {
+                        closeMobileMenu();
+                        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="group flex items-center w-full px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--dark-700)] transition-all duration-300 ease-out"
                     >
-                      <span className="text-lg font-industrial text-[var(--dark-200)] group-hover:text-white transition-colors duration-300">
+                      <span className="text-lg font-industrial text-white group-hover:text-[var(--primary-300)] transition-colors duration-300">
                         Services
                       </span>
-                    </a>
-                    <a
-                      href="#about"
-                      className="group flex items-center px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--primary-500)] transition-all duration-300 ease-out"
+                    </button>
+                    <button
+                      onClick={() => {
+                        closeMobileMenu();
+                        document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="group flex items-center w-full px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--dark-700)] transition-all duration-300 ease-out"
                     >
-                      <span className="text-lg font-industrial text-[var(--dark-200)] group-hover:text-white transition-colors duration-300">
+                      <span className="text-lg font-industrial text-white group-hover:text-[var(--primary-300)] transition-colors duration-300">
                         About
                       </span>
-                    </a>
-                    <a
-                      href="#contact"
-                      className="group flex items-center px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--primary-500)] transition-all duration-300 ease-out"
+                    </button>
+                    <button
+                      onClick={() => {
+                        closeMobileMenu();
+                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="group flex items-center w-full px-4 py-4 bg-[var(--dark-800)] hover:bg-[var(--dark-700)] transition-all duration-300 ease-out"
                     >
-                      <span className="text-lg font-industrial text-[var(--dark-200)] group-hover:text-white transition-colors duration-300">
+                      <span className="text-lg font-industrial text-white group-hover:text-[var(--primary-300)] transition-colors duration-300">
                         Contact
                       </span>
-                    </a>
+                    </button>
                   </nav>
                 </div>
 

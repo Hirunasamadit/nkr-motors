@@ -396,6 +396,38 @@ html {
 }
 
 /* Theme Utility Classes */
+.theme-gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.theme-gradient-primary-hover {
+  background: var(--gradient-primary-hover);
+}
+
+.theme-gradient-primary-light {
+  background: var(--gradient-primary-light);
+}
+
+.theme-gradient-primary-medium {
+  background: var(--gradient-primary-medium);
+}
+
+.theme-gradient-primary-dark {
+  background: var(--gradient-primary-dark);
+}
+
+.theme-gradient-primary-darker {
+  background: var(--gradient-primary-darker);
+}
+
+.theme-gradient-primary-darkest {
+  background: var(--gradient-primary-darkest);
+}
+
+.theme-gradient-primary-ultra {
+  background: var(--gradient-primary-ultra);
+}
+
 .theme-bg-primary {
   background: var(--gradient-bg-primary);
 }
@@ -547,11 +579,15 @@ html {
   background-color: transparent;
   backdrop-filter: blur(4px);
   transition: all 300ms ease-out;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .theme-input::placeholder {
   color: var(--dark-400);
   transition: color 300ms ease-out;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .theme-input:hover {
@@ -565,6 +601,10 @@ html {
 .theme-input:focus {
   border-color: var(--primary-300);
   box-shadow: var(--shadow-input-focus);
+}
+
+.theme-input:focus::placeholder {
+  color: var(--dark-200);
 }
 
 .theme-input[data-placeholder] {

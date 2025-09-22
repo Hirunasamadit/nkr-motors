@@ -19,7 +19,7 @@ export function StepCard({
 
        {/* Connecting Line */}
        {(
-         <div className="absolute top-8 w-full h-0.5 hidden md:block">
+         <div className="absolute top-8 w-full h-0.5">
            {/* Base line */}
            <div className={`absolute inset-0 bg-gradient-to-r from-[var(--primary-400)] via-[var(--primary-300)] to-[var(--primary-400)] opacity-20`}></div>
            {/* Animated progress line */}

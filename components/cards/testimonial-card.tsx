@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { TestimonialCardProps } from "@/lib/types";
 import { FiStar } from "react-icons/fi";
@@ -8,7 +8,7 @@ export function TestimonialCard({
   quote,
   name,
   role,
-  avatarInitials,
+  photoUrl,
   index,
 }: TestimonialCardProps) {
   return (
@@ -47,8 +47,15 @@ export function TestimonialCard({
         <Avatar
           className={`w-16 h-16 mr-4 theme-bg-component-${index + 1}`}
         >
+          {photoUrl && (
+            <AvatarImage 
+              src={photoUrl} 
+              alt={`${name} profile photo`}
+              className="object-cover"
+            />
+          )}
           <AvatarFallback className="text-white font-industrial text-xl">
-            {avatarInitials}
+            {name.charAt(0)}
           </AvatarFallback>
         </Avatar>
         <div>

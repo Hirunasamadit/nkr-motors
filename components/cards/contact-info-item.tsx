@@ -21,7 +21,7 @@ export function ContactInfoItem({
         {icon}
       </div>
       <div>
-        <div className="text-lg font-industrial text-white group-hover:text-[var(--primary-300)] transition-colors duration-300 ease-out">
+        <div className="text-base sm:text-lg font-industrial text-white group-hover:text-[var(--primary-300)] transition-colors duration-300 ease-out">
           {primaryText}
         </div>
         <div className="text-sm text-[var(--dark-400)] group-hover:text-[var(--dark-300)] transition-colors duration-300 ease-out">
