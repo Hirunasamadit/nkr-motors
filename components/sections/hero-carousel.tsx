@@ -74,12 +74,27 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
 
       {/* Car Image - Absolute Positioned for Desktop - Consistent across all slides */}
       <motion.div 
-        className="absolute right-8 -bottom-20 z-20 group cursor-pointer hidden lg:block"
+        className="absolute -right-6 -bottom-6 md:right-0 md:-bottom-12 z-20 group cursor-pointer block sm:hidden xl:block"
         animate={floatingAnimation}
         transition={floatingTransition}
       >
         <div className="relative">
-          {/* External Car Image - Base Layer */}
+          <Image
+            src="/car.png"
+            alt="Sleek dark sports car with transparent body revealing internal suspension and wheel components"
+            width={720}
+            height={720}
+            className="w-64 h-64 sm:w-80 sm:h-80 xl:w-[720px] xl:h-[720px] object-contain transition-all duration-1000 ease-[cubic-bezier(0.4,0.2,0.2,1)]"
+          />
+          {/* Headlight Effects - Hidden on mobile */}
+          <div className="hidden md:block absolute top-[51%] left-[16%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-150 group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
+          <div className="hidden md:block absolute top-[53%] left-[21%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-150 group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
+          <div className="hidden md:block absolute top-[51%] left-[74%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-150 group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
+          <div className="hidden md:block absolute top-[53%] left-[69%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-150 group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
+        </div>
+        
+        {/* <div className="relative">
+          External Car Image - Base Layer
           <Image
             src="/car-external-alt.png"
             alt="Sleek dark sports car with transparent body revealing internal suspension and wheel components"
@@ -88,7 +103,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
             className="h-auto object-contain transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-80"
           />
           {/* Internal Engine Image - Overlay Layer */}
-          <Image
+          {/* <Image
             src="/car-internal-alt.png"
             alt="Detailed V-engine with pulleys, suspension, and brake components"
             width={624}
@@ -96,7 +111,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
             className="absolute inset-0 h-auto object-contain transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-60 group-hover:opacity-90"
           />
           {/* Pulley Component Image - Bottom Right */}
-          <Image
+          {/* <Image
             src="/car-pulley.png"
             alt="Metallic pulley component with bolt holes and polished surface"
             width={62}
@@ -105,10 +120,10 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
             style={{ animationDuration: '6s' }}
           />
           
-          {/* Enhanced Headlight Effects */}
-          <div className="absolute top-[42%] left-[5%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-175 group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
+          {/* Headlight Effects */}
+          {/* <div className="absolute top-[42%] left-[5%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-175 group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
           <div className="absolute top-[42%] left-[82%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-175 group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
-        </div>
+        </div> */}
       </motion.div>
 
       {/* Main Content Container */}
@@ -166,35 +181,6 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
                 </motion.div>
               </AnimatePresence>
             </div>
-
-            {/* Car Image - Mobile/Tablet - Bottom of hero section */}
-            <motion.div 
-              className="flex justify-center items-end mt-12 lg:hidden group cursor-pointer"
-              animate={floatingAnimation}
-              transition={floatingTransition}
-            >
-              <div className="relative max-w-md w-full">
-                {/* External Car Image - Base Layer */}
-                <Image
-                  src="/car-external-alt.png"
-                  alt="Sleek dark sports car with transparent body revealing internal suspension and wheel components"
-                  width={400}
-                  height={267}
-                  className="w-full h-auto object-contain transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-80"
-                />
-                {/* Internal Engine Image - Overlay Layer */}
-                <Image
-                  src="/car-internal-alt.png"
-                  alt="Detailed V-engine with pulleys, suspension, and brake components"
-                  width={400}
-                  height={267}
-                  className="absolute inset-0 w-full h-auto object-contain transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-60 group-hover:opacity-90"
-                />       
-                {/* Enhanced Headlight Effects - Mobile */}
-                <div className="absolute top-[42%] left-[8%] w-12 h-12 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-150 group-hover:shadow-[0_20px_40px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
-                <div className="absolute top-[42%] left-[82%] w-12 h-12 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-150 group-hover:shadow-[0_20px_40px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </div>

@@ -11,9 +11,7 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-        outline:
+            outline:
           "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         secondary:
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
@@ -24,6 +22,8 @@ const buttonVariants = cva(
           "text-white text-xl font-bold tracking-wider uppercase bg-[var(--primary-400)] hover:bg-transparent border-2 border-transparent hover:border-[var(--primary-400)] duration-300 ease-out [clip-path:polygon(8%_0%,100%_0%,100%_50%,92%_100%,0%_100%,0%_50%)] hover:[clip-path:polygon(0%_0%,100%_0%,100%_100%,0%_100%)] overflow-hidden before:absolute before:inset-0 before:bg-white/10 before:translate-x-[-100%] before:translate-y-[100%] before:rotate-30 before:scale-150 hover:before:translate-x-[100%] hover:before:translate-y-[-100%] before:transition-none hover:before:transition-transform hover:before:duration-1400 hover:before:ease-out",
         outlined:
           "text-white text-xl font-bold tracking-wider uppercase bg-transparent border-2 border-[var(--primary-400)] duration-300 ease-out [clip-path:polygon(8%_0%,100%_0%,100%_50%,92%_100%,0%_100%,0%_50%)] overflow-hidden relative before:absolute before:inset-0 before:bg-[var(--primary-400)] before:scale-x-0 before:origin-center before:transition-transform before:duration-300 before:ease-in hover:before:scale-x-100 before:z-[-1]",
+        destructive:
+          "text-white text-xl font-bold tracking-wider uppercase bg-[var(--destructive-600)] hover:bg-transparent border-2 border-transparent hover:border-[var(--destructive-600)] duration-300 ease-out [clip-path:polygon(8%_0%,100%_0%,100%_50%,92%_100%,0%_100%,0%_50%)] hover:[clip-path:polygon(0%_0%,100%_0%,100%_100%,0%_100%)] overflow-hidden before:absolute before:inset-0 before:bg-white/10 before:translate-x-[-100%] before:translate-y-[100%] before:rotate-30 before:scale-150 hover:before:translate-x-[100%] hover:before:translate-y-[-100%] before:transition-none hover:before:transition-transform hover:before:duration-1400 hover:before:ease-out",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
