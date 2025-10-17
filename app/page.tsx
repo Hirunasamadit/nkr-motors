@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, Suspense } from "react";
 import { Navigation } from "@/components/layout/navigation";
 import { HeroCarousel } from "@/components/sections/hero-carousel";
 import { StatisticsSection } from "@/components/sections/statistics-section";
@@ -43,7 +42,9 @@ export default function Home() {
         <HowItWorksSection />
         <TestimonialsSection />
         <TipsSection />
-        <ContactSection />
+        <Suspense fallback={<div className="py-24 text-center text-white">Loading contact form...</div>}>
+          <ContactSection />
+        </Suspense>
         <Footer />
         <FloatingNav />
       </div>

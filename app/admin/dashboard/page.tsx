@@ -7,7 +7,7 @@ import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatusBadge } from "@/components/ui/status-badge";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { NavigationLogo } from "@/components/ui/logo";
@@ -15,7 +15,6 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/s
 import { 
   CalendarIcon, 
   ClockIcon, 
-  UserIcon, 
   CarIcon, 
   PhoneIcon, 
   MailIcon,
@@ -44,11 +43,6 @@ export default function AdminDashboard() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
   const supabase = createClient();
-
-  useEffect(() => {
-    checkAuth();
-  }, []);
-
 
   const getSignedUrl = async (url: string): Promise<string | null> => {
     try {
@@ -83,6 +77,10 @@ export default function AdminDashboard() {
     setIsAuthenticated(true);
     fetchBookings();
   };
+
+  useEffect(() => {
+    checkAuth();
+  }, []);
 
   const fetchBookings = async () => {
     try {

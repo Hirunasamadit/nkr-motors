@@ -74,7 +74,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
 
       {/* Car Image - Absolute Positioned for Desktop - Consistent across all slides */}
       <motion.div 
-        className="absolute -right-6 -bottom-6 md:right-0 md:-bottom-12 z-20 group cursor-pointer block sm:hidden xl:block"
+        className="absolute -right-4 -bottom-6 xl:right-0 xl:-bottom-12 z-20 group cursor-pointer block sm:hidden xl:block"
         animate={floatingAnimation}
         transition={floatingTransition}
       >
@@ -84,7 +84,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
             alt="Sleek dark sports car with transparent body revealing internal suspension and wheel components"
             width={720}
             height={720}
-            className="w-64 h-64 sm:w-80 sm:h-80 xl:w-[720px] xl:h-[720px] object-contain transition-all duration-1000 ease-[cubic-bezier(0.4,0.2,0.2,1)]"
+            className="w-48 h-48 xl:w-[720px] xl:h-[720px] object-contain transition-all duration-1000 ease-[cubic-bezier(0.4,0.2,0.2,1)]"
           />
           {/* Headlight Effects - Hidden on mobile */}
           <div className="hidden md:block absolute top-[51%] left-[16%] w-20 h-20 rounded-full opacity-0 group-hover:opacity-85 transition-all duration-700 ease-out group-hover:scale-150 group-hover:shadow-[0_30px_60px_rgba(255,255,255,0.5)] blur-sm z-30" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,248,255,0.8) 50%, rgba(230,243,255,0.6) 100%)' }}></div>

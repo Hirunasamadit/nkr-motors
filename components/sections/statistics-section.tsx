@@ -1,6 +1,6 @@
 import { StatsCard } from "@/components/cards/stats-card";
 import { statisticsData } from "@/lib/constants";
-import { AnimatedContent, StaggeredContainer, StaggeredItem } from "@/lib/animations";
+import { StaggeredContainer, StaggeredItem } from "@/lib/animations";
 
 export function StatisticsSection() {
   return (
@@ -15,7 +15,6 @@ export function StatisticsSection() {
                 suffix={stat.suffix}
                 title={stat.title}
                 description={stat.description}
-                index={index}
               />
             </StaggeredItem>
           ))}

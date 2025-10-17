@@ -1,10 +1,18 @@
 import { ReactNode } from "react";
 
+export interface NavLinkProps {
+  href: string;
+  children: ReactNode;
+}
+
 export interface ServiceCardProps {
   icon: ReactNode;
   title: string;
   description: string;
-  features: string[];
+  features?: string[];
+  buttonText: string;
+  index: number;
+  onClick: () => void;
 }
 
 export interface StatsCardProps {
@@ -16,15 +24,21 @@ export interface StatsCardProps {
 export interface TestimonialCardProps {
   name: string;
   role: string;
-  content: string;
-  avatar: string;
-  rating: number;
+  content?: string;
+  avatar?: string;
+  rating?: number;
+  stars: number;
+  quote: string;
+  photoUrl?: string;
+  index: number;
 }
 
 export interface TipCardProps {
   icon: ReactNode;
   title: string;
   description: string;
+  category: string;
+  index: number;
 }
 
 export interface WhyChooseUsItemProps {
@@ -47,7 +61,7 @@ export interface AboutCardProps {
 }
 
 export interface StepCardProps {
-  icon: ReactNode;
+  icon?: ReactNode;
   title: string;
   description: string;
   stepNumber: number;

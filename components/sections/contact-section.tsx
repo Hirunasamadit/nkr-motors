@@ -142,7 +142,7 @@ export function ContactSection() {
     }
   };
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: z.infer<typeof bookingSchema>) => {
     setIsSubmitting(true);
 
     try {
@@ -200,13 +200,13 @@ export function ContactSection() {
       setPaymentReceipt(null);
       setShowSuccessDialog(true);
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Booking error:', error);
       
       // Provide specific error messages
       let errorMsg = "An error occurred while creating your booking";
       
-      if (error.message) {
+      if (error instanceof Error && error.message) {
         if (error.message.includes('infinite recursion')) {
           errorMsg = "Database configuration error. Please try again later.";
         } else if (error.message.includes('foreign key')) {

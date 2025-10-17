@@ -6,10 +6,9 @@ interface StatsCardProps {
   suffix: string;
   title: string;
   description: string;
-  index: number;
 }
 
-export function StatsCard({ value, suffix, title, description, index }: StatsCardProps) {
+export function StatsCard({ value, suffix, title, description }: StatsCardProps) {
   return (
     <div className="text-center group h-full flex flex-col">
       <div className="mb-4 text-6xl md:text-7xl font-automotive text-white group-hover:text-[var(--primary-200)] transition-colors duration-300 ease-out">
