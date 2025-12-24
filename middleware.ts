@@ -36,7 +36,38 @@ export const createClient = (request: NextRequest) => {
   return supabaseResponse
 };
 
+// Suspicious path patterns detected by Google Security
+// These are known malicious paths that should be blocked
+const SUSPICIOUS_PATHS = [
+  '/-nordazldldm/',
+  '/cdisps/',
+  '/csmspppocad/',
+  '/homepqk/',
+  '/mordatillo/',
+  '/qmqpoqt/',
+  '/securess/',
+  '/F004f19441/',
+  '00951124a.php',
+];
+
 export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  
+  const isSuspicious = SUSPICIOUS_PATHS.some(path => pathname.includes(path)) ||
+    pathname.endsWith('.php') ||
+    // Block paths with suspicious query parameters that match malicious patterns
+    (pathname.includes('F004f19441') && pathname.includes('00951124a.php'));
+  
+  if (isSuspicious) {
+    return new NextResponse(null, {
+      status: 404,
+      headers: {
+        'X-Robots-Tag': 'noindex, nofollow',
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+      },
+    });
+  }
+  
   // Refresh session if expired - required for Server Components
   const response = createClient(request);
   

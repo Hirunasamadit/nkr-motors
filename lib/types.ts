@@ -30,6 +30,7 @@ export interface TestimonialCardProps {
   stars: number;
   quote: string;
   photoUrl?: string;
+  initials?: string;
   index: number;
 }
 

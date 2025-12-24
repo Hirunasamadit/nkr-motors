@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { createClient } from "@/lib/supabase/client";
@@ -66,23 +66,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const checkAuth = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    
-    if (!user) {
-      router.push('/admin/signin');
-      return;
-    }
-
-    setIsAuthenticated(true);
-    fetchBookings();
-  };
-
-  useEffect(() => {
-    checkAuth();
-  }, []);
-
-  const fetchBookings = async () => {
+  const fetchBookings = useCallback(async () => {
     try {
       const { data, error } = await supabase
         .from('bookings')
@@ -100,7 +84,23 @@ export default function AdminDashboard() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [supabase]);
+
+  const checkAuth = useCallback(async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    if (!user) {
+      router.push('/admin/signin');
+      return;
+    }
+
+    setIsAuthenticated(true);
+    fetchBookings();
+  }, [router, supabase, fetchBookings]);
+
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();

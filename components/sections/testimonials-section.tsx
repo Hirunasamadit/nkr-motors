@@ -28,7 +28,7 @@ export function TestimonialsSection() {
                 quote={testimonial.quote}
                 name={testimonial.name}
                 role={testimonial.role}
-                photoUrl={testimonial.photoUrl}
+                initials={testimonial.initials}
                 index={index}
               />
             </StaggeredItem>

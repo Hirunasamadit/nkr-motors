@@ -14,6 +14,7 @@ import { Footer } from "@/components/layout/footer";
 import { carouselSlides } from "@/lib/constants";
 import { PageTransition } from "@/lib/animations";
 import { FloatingNav } from "@/components/ui/floating-nav";
+import { StructuredData } from "@/components/seo/structured-data";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,8 +33,10 @@ export default function Home() {
   }, []);
 
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-[var(--background)]">
+    <>
+      <StructuredData />
+      <PageTransition>
+        <div className="min-h-screen bg-[var(--background)]">
         <Navigation isScrolled={isScrolled} />
         <HeroCarousel slides={carouselSlides} />
         <StatisticsSection />
@@ -47,7 +50,8 @@ export default function Home() {
         </Suspense>
         <Footer />
         <FloatingNav />
-      </div>
-    </PageTransition>
+        </div>
+      </PageTransition>
+    </>
   );
 }

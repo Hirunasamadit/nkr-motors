@@ -290,24 +290,24 @@ export const stepsData = [
 export const testimonialsData = [
   {
     stars: 5,
-    quote: `Excellent service! ${BRAND.NAME} fixed my brake issue quickly and professionally. The staff was friendly and the pricing was fair. Highly recommended!`,
-    name: "John Smith",
-    role: "Regular Customer",
-    photoUrl: "/customer-1.jpg",
+    quote: "The best place to get your Nissan leaf fixed. I had an issue with current leaking to body due to a defective battery. I had a range of 40 km and he fixed them with no time. Now my vehicle runs more than 100 km to Kandy. With my short interaction I realised that Nalaka is a man with few words but a very reliable person. I highly recommend his expert advice.",
+    name: "VN Seneviratne",
+    role: "via Google Maps",
+    initials: "VNS",
   },
   {
     stars: 5,
-    quote: `I've been bringing my cars to ${BRAND.NAME} for years. They always provide honest service and never try to upsell unnecessary repairs. Trustworthy and reliable!`,
-    name: "Maria Johnson",
-    role: "Loyal Customer",
-    photoUrl: "/customer-2.jpg",
+    quote: "Really satisfied with the work they did. They reset my Nissan leaf battery. It was running only 35 km for a full charge. After reset it can run close to 90km. This is not what is shown in dashboard. This is actual distance.",
+    name: "Udesh Niranga",
+    role: "via Google Maps",
+    initials: "UN",
   },
   {
     stars: 5,
-    quote: "Fast, efficient, and professional. They diagnosed my engine problem accurately and fixed it the same day. Great customer service and fair pricing!",
-    name: "Robert Brown",
-    role: "New Customer",
-    photoUrl: "/customer-3.jpg",
+    quote: "Great place to have your Nissan LEAF inspected or repaired. They have more experience than others as they are doing only leaf cars. Owner is very helpful.",
+    name: "Ishara Rupasingha",
+    role: "via Google Maps",
+    initials: "IR",
   },
 ];
 

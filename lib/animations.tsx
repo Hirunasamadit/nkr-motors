@@ -217,6 +217,7 @@ interface TextRevealProps {
   delay?: number;
   highlightWords?: string[];
   highlightClass?: string;
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "p";
 }
 
 export function TextReveal({ 
@@ -224,7 +225,8 @@ export function TextReveal({
   className = "",
   delay = 0,
   highlightWords = [],
-  highlightClass = "theme-text-gradient-accent"
+  highlightClass = "theme-text-gradient-accent",
+  as: Component = "div"
 }: TextRevealProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { 
@@ -235,8 +237,10 @@ export function TextReveal({
 
   const words = text.split(" ");
 
+  const MotionComponent = motion[Component] || motion.div;
+
   return (
-    <motion.div
+    <MotionComponent
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -275,7 +279,7 @@ export function TextReveal({
           )}
         </motion.span>
       ))}
-    </motion.div>
+    </MotionComponent>
   );
 }
 
