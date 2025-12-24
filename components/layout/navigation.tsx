@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/navigation-menu";
 import { NavLink } from "@/components/ui/nav-link";
 import { NavigationLogo } from "@/components/ui/logo";
+import { SocialShareOptions } from "@/components/ui/social-share";
+import { Share2 } from "lucide-react";
 import { FaPhone } from "react-icons/fa6";
 import { FiMenu, FiX } from "react-icons/fi";
 
@@ -156,7 +158,7 @@ export function Navigation({ isScrolled }: NavigationProps) {
                 </div>
 
                 {/* Phone Action Section */}
-                <div className="sticky bottom-0 bg-[var(--dark-900)] border-t border-[var(--dark-700)] p-6">
+                <div className="bg-[var(--dark-900)] border-t border-[var(--dark-700)] p-6 mx-4">
                   <div className="space-y-4">
                     <div className="text-center">
                       <p className="text-sm text-[var(--dark-400)] mb-2">
@@ -179,6 +181,17 @@ export function Navigation({ isScrolled }: NavigationProps) {
                         </a>
                       </Button>
                     </div>
+                  </div>
+                </div>
+                
+                {/* Social Share Footer */}
+                <div className="sticky bottom-0 bg-[var(--dark-900)] border-t border-[var(--dark-700)] p-6">
+                  <div className="px-4">
+                    <div className="flex items-center justify-center gap-2 mb-4">
+                      <Share2 className="w-4 h-4 text-[var(--primary-400)]" />
+                      <h3 className="text-base font-industrial text-white">Share on social media</h3>
+                    </div>
+                    <SocialShareOptions onShare={closeMobileMenu} variant="mobile" />
                   </div>
                 </div>
               </SheetContent>

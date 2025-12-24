@@ -13,6 +13,21 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.nkr.lk',
+          },
+        ],
+        destination: 'https://nkr.lk/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -20,7 +20,7 @@ import { BiSolidDonateHeart } from "react-icons/bi";
 export const BRAND = {
   NAME: 'NKR MOTORS',
   TAGLINE: 'Professional Auto Service',
-  DESCRIPTION: 'Professional auto service, repair, and maintenance at NKR Motors. Expert technicians, quality service, and competitive pricing for all your automotive and electric vehicle needs.',
+  DESCRIPTION: 'Expert auto service, repair & maintenance at NKR Motors. Quality service, competitive pricing for automotive & EV needs.',
   COPYRIGHT_YEAR: new Date().getFullYear(),
   CONTACT: {
     PHONE: '+94 11 229 4142',

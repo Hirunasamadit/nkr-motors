@@ -7,6 +7,7 @@ import { ContactInfoItem } from "@/components/cards/contact-info-item";
 import { FaPhone } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { AnimatedContent, StaggeredContainer, StaggeredItem } from "@/lib/animations";
+import { SocialShare } from "@/components/ui/social-share";
 
 export function Footer() {
   return (
@@ -89,7 +90,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="#"
+                  href="#services"
                   className="inline-block text-lg font-industrial text-[var(--dark-300)] hover:text-[var(--primary-600)] relative group transition-all duration-300 ease-out after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:border-b-2 after:border-dashed after:border-[var(--primary-600)] after:transition-all after:duration-300 after:ease-out hover:after:w-full"
                 >
                   Oil Change Service
@@ -97,7 +98,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#services"
                   className="inline-block text-lg font-industrial text-[var(--dark-300)] hover:text-[var(--primary-600)] relative group transition-all duration-300 ease-out after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:border-b-2 after:border-dashed after:border-[var(--primary-600)] after:transition-all after:duration-300 after:ease-out hover:after:w-full"
                 >
                   Tire Repair
@@ -105,7 +106,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#services"
                   className="inline-block text-lg font-industrial text-[var(--dark-300)] hover:text-[var(--primary-600)] relative group transition-all duration-300 ease-out after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:border-b-2 after:border-dashed after:border-[var(--primary-600)] after:transition-all after:duration-300 after:ease-out hover:after:w-full"
                 >
                   Brake Repair
@@ -113,7 +114,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#services"
                   className="inline-block text-lg font-industrial text-[var(--dark-300)] hover:text-[var(--primary-600)] relative group transition-all duration-300 ease-out after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:border-b-2 after:border-dashed after:border-[var(--primary-600)] after:transition-all after:duration-300 after:ease-out hover:after:w-full"
                 >
                   Engine Repair
@@ -121,7 +122,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#services"
                   className="inline-block text-lg font-industrial text-[var(--dark-300)] hover:text-[var(--primary-600)] relative group transition-all duration-300 ease-out after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:border-b-2 after:border-dashed after:border-[var(--primary-600)] after:transition-all after:duration-300 after:ease-out hover:after:w-full"
                 >
                   EV Services
@@ -154,12 +155,15 @@ export function Footer() {
 
         <AnimatedContent delay={0.8} className="mt-16 pt-8">
           <Separator className="bg-white/20 mb-8" />
-          <div className="flex justify-center">
-            <p className="text-lg text-[var(--dark-300)] text-center">
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <p className="text-lg text-[var(--dark-300)] text-center sm:text-left">
               © {BRAND.COPYRIGHT_YEAR}{" "}
               <span className="font-bold text-[var(--primary-400)] hover:text-[var(--primary-300)] transition-colors duration-300 ease-out">{BRAND.NAME}</span>. All rights
               reserved. {BRAND.TAGLINE}.
             </p>
+            <div className="hidden lg:flex items-center justify-center sm:justify-end">
+              <SocialShare />
+            </div>
           </div>
         </AnimatedContent>
       </div>

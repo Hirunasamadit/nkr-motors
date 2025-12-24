@@ -62,7 +62,7 @@ export function Logo({
       </div>
       {showText && (
         <div>
-          <h1 className={cn(
+          <div className={cn(
             "font-automotive text-white tracking-tight",
             config.textSize
           )}>
@@ -70,7 +70,7 @@ export function Logo({
               NKR
             </span>
             <span className="text-white"> MOTORS</span>
-          </h1>
+          </div>
           {showTagline && (
             <p className={cn(
               "text-[var(--dark-300)] font-industrial -mt-1",
